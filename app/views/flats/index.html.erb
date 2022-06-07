@@ -1,0 +1,44 @@
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-12">
+      <h1>Stay at our Flats for free!</h1>
+      <%= cl_image_tag("mzvtwqhn1khywhotsrslycx1id24",
+      width: 400, height: 300, crop: :fill) %>
+    </div>
+  </div>
+
+  <div class="flex-align">
+    <% @flats.each do |flat| %>
+      <div class="col-md-4">
+        <div class="flat-card">
+          <div class="flat-card-image" style="background-image: url('<%= flat.picture_url %>')"></div>
+          <div class="flat-card-content">
+            <div class="flat-card-title">
+              <h3><%= flat.name %></h3>
+            </div>
+            <p><%= flat.address %></p>
+            <div class="flex">
+              <div class="flex">
+                <i class="fa-solid fa-people"></i>people</i><span><%= flat.number_of_guests %></span>
+              </div>
+              <div class="flex ms-3">
+                <i class="material-icons me-2">euro_symbol</i> <%= flat.price_per_night %>
+              </div>
+            </div>
+          </div>
+          <div class="flat-card-actions">
+            <%= link_to 'More info', flat_path(flat) %>
+            <%= link_to 'Edit', edit_flat_path(flat), class: 'ms-3 text-warning' %>
+            <%= link_to "Remove", flat_path(flat),
+                method: :delete,
+                data: { confirm: "Are you sure?" },
+                class: 'ms-3 text-danger'
+            %>
+            <button id="sweet-alert-demo" class="btn btn-danger">Delete <%= flat.name %></button>
+            <%= link_to "", flat_path(flat), method: :delete, id: "delete-link", class: "hidden" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
