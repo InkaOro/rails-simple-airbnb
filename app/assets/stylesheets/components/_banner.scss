@@ -1,0 +1,43 @@
+.banner {
+  background-size: cover;
+  background-position: center;
+  background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0)),url(asset-path("mountain1.jpg"));
+  background-position: bottom;
+}
+
+.banner h1 {
+  margin: 0;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-weight: bold;
+  font-size: 60px;
+}
+
+.banner h2 {
+  margin: 0;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.banner p {
+  color: white;
+  opacity: .7;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.banner {
+ .btn-main {
+  padding: 5px;
+  font-size: 40px;
+  width: 250px;
+  margin: 30px;
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  }
+}
