@@ -4,6 +4,7 @@
       <div class="flat-show-card">
         <h1><%= @flat.name %></h1>
         <p class="flat-show-address"><%= @flat.address %></p>
+        <%= cl_image_tag @flat.photo.key, height: 300, width: 400, crop: :fill %>
       </div>
       <div class="flat-show-card">
         <h3>A bit more about this flat...</h3>

@@ -29,12 +29,16 @@
           </div>
           <div class="flat-card-actions">
             <%= link_to 'More info', flat_path(flat) %>
-            <%= link_to 'Edit', edit_flat_path(flat), class: 'ms-3 text-warning' %>
+            <% if policy(flat).edit? %>
+              <%= link_to 'Edit', edit_flat_path(flat), class: 'ms-3 text-warning' %>
+            <% end %>
+            <% if policy(flat).destroy? %>
             <%= link_to "Remove", flat_path(flat),
                 method: :delete,
                 data: { confirm: "Are you sure?" },
                 class: 'ms-3 text-danger'
             %>
+            <% end %>
             <button id="sweet-alert-demo" class="btn btn-danger">Delete <%= flat.name %></button>
             <%= link_to "", flat_path(flat), method: :delete, id: "delete-link", class: "hidden" %>
           </div>
