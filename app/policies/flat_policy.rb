@@ -22,12 +22,10 @@ class FlatPolicy < ApplicationPolicy
   # end
 
   def update?
-    # record.user == user || user.admin
-    true
+    record.user == user
   end
 
   def destroy?
-    # user == record.user || user.admin
-    true
+    user == record.user
   end
 end

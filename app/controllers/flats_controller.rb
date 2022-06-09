@@ -15,9 +15,6 @@ class FlatsController < ApplicationController
     authorize @flat
   end
 
-  def edit
-  end
-
   def create
     @flat = Flat.new(flat_params)
     @flat.user = current_user
@@ -28,6 +25,9 @@ class FlatsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def edit
   end
 
   def update

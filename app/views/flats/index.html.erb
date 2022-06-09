@@ -2,27 +2,33 @@
   <div class="row">
     <div class="col-12">
       <h1>Stay at our Flats for free!</h1>
-      <%= cl_image_tag("https://res.cloudinary.com/dwyb9hmjd/image/upload/c_fill,g_auto,h_250,w_970/b_rgb:000000,e_gradient_fade,y_-0.50/c_scale,co_rgb:ffffff,fl_relative,l_text:montserrat_25_style_light_align_center:Shop%20Now,w_0.5,y_0.18/v1654618769/wmzncbrt9q1ee29yncbp.jpg",
+      <%= cl_image_tag("wwl3aqfo4ziayuwst50i",
       ) %>
     </div>
   </div>
 
-  <div class="flex-align">
+
+   <div class="row">
     <% @flats.each do |flat| %>
       <div class="col-md-4">
         <div class="flat-card">
-          <div class="flat-card-image" style="background-image: url('<%= flat.picture_url %>')"></div>
+          <% if flat.photo.present? %>
+             <%= cl_image_tag flat.photo.key, height: 300, width: 350, crop: :fill %>
+          <% else %>
+            <div class="flat-card-image" style="background-image: url('<%= flat.picture_url %>')"></div>
+          <% end %>
+
             <div class="flat-card-content">
               <div class="flat-card-title">
                 <h3><%= flat.name %></h3>
               </div>
-              <p><%= flat.address %></p>
+                <p><%= flat.address %></p>
               <div class="flex">
                 <div class="flex">
                   <i class="fas fa-male"></i><span><%= flat.number_of_guests %></span>
                 </div>
                 <div class="flex ms-3">
-                  <i class="fas fa-euro-sign"></i> <%= flat.price_per_night %>
+                  <i class="fas fa-euro-sign"></i><%= flat.price_per_night %>
                 </div>
               </div>
             </div>
@@ -39,12 +45,11 @@
                 class: 'ms-3 text-danger'
             %>
             <% end %>
-            <button id="sweet-alert-demo" class="btn btn-danger">Delete <%= flat.name %></button>
-            <%= link_to "", flat_path(flat), method: :delete, id: "delete-link", class: "hidden" %>
           </div>
         </div>
       </div>
     <% end %>
   </div>
 </div>
+
 <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
